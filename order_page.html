@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <meta charset="utf-8"/>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-   <title>Mobile-Order-System</title>
-   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
-   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
-  
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Mobile-Order-System</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#page1").bind("pagebeforehide",function(event, ui){
+				alert("1페이지에서 2페이지로 전환 전에 1페이지에서 작동합니다.");
+			});
+			
+			$("#page2").bind("pagebeforeshow",function(event, ui){
+				alert("1페이지에서 2페이지로 전환 전에 2페이지에서 작동합니다.");
+			});
+			
+			$("#page1").bind("pagehide",function(event, ui){
+				alert("1페이지에서 2페이지로 전환이 끝난 후에 1페이지에서 작동합니다.");
+			});
+			
+			$("#page2").bind("pageshow",function(event, ui){
+				alert("1페이지에서 2페이지로 전환이 끝난 후에 2페이지에서 작동합니다.");
+			});
+	
+			$("#page2").bind("pagebeforehide",function(event, ui){
+				alert("2페이지에서 1페이지로 전환 전에 2페이지에서 작동합니다.");
+			});
+			
+			$("#page1").bind("pagebeforeshow",function(event, ui){
+				alert("2페이지에서 1페이지로 전환 전에 1페이지에서 작동합니다.");
+			});
+			
+			$("#page2").bind("pagehide",function(event, ui){
+				alert("2페이지에서 1페이지로 전환이 끝난 후에 2페이지에서 작동합니다.");
+			});
+			
+			$("#page1").bind("pageshow",function(event, ui){
+				alert("2페이지에서 1페이지로 전환이 끝난 후에 1페이지에서 작동합니다.");
+			});
+		});
+	</script>	
 </head>
 <body>
 	<!--메인 페이지-->
@@ -27,48 +60,66 @@
 		</div>
 		<div data-role="content"> 			               
 			<div class="ui-grid-b ui-responsive"> <!--3등분 반응형 그리드-->
-				<div class="ui-block-a">
-				  <a href="#" class="ui-btn ui-corner-all ui-shadow">아메리카노</a><br>
+				<div class="ui-block-a" id="menu1">
+				  <a class="ui-btn ui-corner-all ui-shadow">아메리카노</a><br>
 				</div>
-				<div class="ui-block-b" id="apple">
-				  <a href="#" class="ui-btn ui-corner-all ui-shadow">카페라떼</a><br>
+				<div class="ui-block-b" id="menu2">
+				  <a class="ui-btn ui-corner-all ui-shadow">카페라떼</a><br>
 				</div>
-				<div class="ui-block-c">
-				  <a href="#" class="ui-btn ui-corner-all ui-shadow">카푸치노</a><br>
+				<div class="ui-block-c" id="menu3">
+				  <a class="ui-btn ui-corner-all ui-shadow">카푸치노</a><br>
 				</div>
-				<div class="ui-block-a">
-					<a href="#" class="ui-btn ui-corner-all ui-shadow">프라푸치노</a><br>
+				<div class="ui-block-a" id="menu4">
+					<a class="ui-btn ui-corner-all ui-shadow">프라푸치노</a><br>
 				</div>
-				  <div class="ui-block-b">
-					<a href="#" class="ui-btn ui-corner-all ui-shadow">아이스티</a><br>
+				  <div class="ui-block-b" id="menu5">
+					<a class="ui-btn ui-corner-all ui-shadow">아이스티</a><br>
 				</div>
-				  <div class="ui-block-c">
-					<a href="#" class="ui-btn ui-corner-all ui-shadow">녹차라떼</a><br>
+				  <div class="ui-block-c" id="menu6">
+					<a class="ui-btn ui-corner-all ui-shadow">녹차라떼</a><br>
 				</div>
-				  <div class="ui-block-a">
-					<a href="#" class="ui-btn ui-corner-all ui-shadow">얼그레이</a><br>
+				  <div class="ui-block-a" id="menu7">
+					<a class="ui-btn ui-corner-all ui-shadow">얼그레이</a><br>
 				</div>
-				  <div class="ui-block-b">
-					<a href="#" class="ui-btn ui-corner-all ui-shadow">스무디</a><br>
+				  <div class="ui-block-b" id="menu8">
+					<a class="ui-btn ui-corner-all ui-shadow">스무디</a><br>
 				</div>
-				  <div class="ui-block-c">
-					<a href="#" class="ui-btn ui-corner-all ui-shadow">사과주스</a><br>
+				  <div class="ui-block-c" id="menu9">
+					<a class="ui-btn ui-corner-all ui-shadow">사과주스</a><br>
 				</div>
 			</div>
 		</div>
 		<div data-role="footer">
-			<h4><a data-role="button" href='#basket_page'>장바구니</a></h4>
-			<h4><a data-role="button" href='#payment_page'>결제하기</a></h4>
+			<div data-role="navbar" data-iconpos="bottom">
+				<ul>
+					<li><a class="ui-btn-active ui-state-persist" href="#" data-icon="grid">메뉴</a></li>
+					<li><a href='#basket_page' data-icon="shop">장바구니</a></li>
+				</ul>
+			</div>
+			<h4><a data-role="button" href='#page2'>결제하기</a></h4>
 		</div>
 	</section>
 	<!--장바구니 페이지-->
 	<section id='basket_page' data-role='page'>
 		<header data-role='header'>
-		  <h1>장바구니</h1></header>
+			<h1>장바구니</h1></header>
 		<div class='content'>
-		  <p>내용</p>
+			<ul data-role="listview">
+				<li data-role="list-divider">음료</li>
+				<li data-icon="minus"><a href="#">음료1<span class="ui-li-count">1</span></a></li>
+				<li data-icon="minus"><a href="#">음료2<span class="ui-li-count">2</span></a></li>
+				<li data-role="list-divider">디저트</li>
+				<li data-icon="minus"><a href="#">디저트1<span class="ui-li-count">2</span></a></li>
+				<li data-icon="minus"><a href="#">디저트2<span class="ui-li-count">1</span></a></li>
+			</ul>
 		</div>
 		<footer data-role='footer'>
+			<div data-role="navbar" data-iconpos="bottom">
+				<ul>
+					<li><a href="#order_page" data-icon="grid">메뉴</a></li>
+					<li><a class="ui-btn-active ui-state-persist" href='#basket_page' data-icon="shop">장바구니</a></li>
+				</ul>
+			</div>
 			<h4><a data-role="button" href='#payment_page'>결제하기</a></h4>
 	  </section>
 	<!--결제 선택 페이지-->
@@ -87,9 +138,10 @@
 
 
 	  <script>
-		$("#apple").click(function() {
+		$("#menu1").click(function() {
 			alert("버튼을 누르셨습니다.");
 		});
 		</script>
+		
 </body>
 </html>
