@@ -6,7 +6,9 @@
 	<title>Mobile-Order-System</title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
 	<script type="text/javascript">
 		$(function(){
 			$("#page1").bind("pagebeforehide",function(event, ui){
@@ -44,15 +46,7 @@
 	</script>	
 </head>
 <body>
-	<!--메인 페이지-->
-	<section id='main_page' data-role='page'>
-		<div data-role="header">
-			<h1>모바일 주문 시스템</h1>
-		</div>
-		<div data-role="content"> 			                
-            <a data-role="button" id="start_btn" data-theme="b" href='#order_page'>시작</a>
-		</div>
-	  </section>
+
 	<!--주문 페이지-->
 	<section id="order_page" data-role="page">
 		<div data-role="header">
@@ -93,55 +87,21 @@
 			<div data-role="navbar" data-iconpos="bottom">
 				<ul>
 					<li><a class="ui-btn-active ui-state-persist" href="#" data-icon="grid">메뉴</a></li>
-					<li><a href='#basket_page' data-icon="shop">장바구니</a></li>
+					<li><a href='basket_page.html' data-icon="shop">장바구니</a></li>
 				</ul>
 			</div>
-			<h4><a data-role="button" href='#page2'>결제하기</a></h4>
+			<a class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-mini" href="#">초기화</a>
+			<a class="ui-shadow ui-btn ui-corner-all ui-btn-inline" href="payment_page.html">결제하기</a>
 		</div>
 	</section>
-	<!--장바구니 페이지-->
-	<section id='basket_page' data-role='page'>
-		<header data-role='header'>
-			<h1>장바구니</h1></header>
-		<div class='content'>
-			<ul data-role="listview">
-				<li data-role="list-divider">음료</li>
-				<li data-icon="minus"><a href="#">음료1<span class="ui-li-count">1</span></a></li>
-				<li data-icon="minus"><a href="#">음료2<span class="ui-li-count">2</span></a></li>
-				<li data-role="list-divider">디저트</li>
-				<li data-icon="minus"><a href="#">디저트1<span class="ui-li-count">2</span></a></li>
-				<li data-icon="minus"><a href="#">디저트2<span class="ui-li-count">1</span></a></li>
-			</ul>
-		</div>
-		<footer data-role='footer'>
-			<div data-role="navbar" data-iconpos="bottom">
-				<ul>
-					<li><a href="#order_page" data-icon="grid">메뉴</a></li>
-					<li><a class="ui-btn-active ui-state-persist" href='#basket_page' data-icon="shop">장바구니</a></li>
-				</ul>
-			</div>
-			<h4><a data-role="button" href='#payment_page'>결제하기</a></h4>
-	  </section>
-	<!--결제 선택 페이지-->
-	  <section id='payment_page' data-role='page'>
-		<header data-role='header'>
-		  <h1>결제 방법 선택</h1></header>
-		<div class='content'>
-		  <p>내용</p>
-		</div>
-		<footer data-role='footer'>
-			<h4><a data-role="button" href='#page2'>결제하기</a></h4>
-	  </section>
 
 
 
-
-
-	  <script>
+		<script>
 		$("#menu1").click(function() {
 			alert("버튼을 누르셨습니다.");
 		});
 		</script>
-		
+
 </body>
 </html>
