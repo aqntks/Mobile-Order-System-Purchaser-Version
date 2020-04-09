@@ -7,52 +7,20 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
-
-	<script type="text/javascript">
-		$(function(){
-			$("#page1").bind("pagebeforehide",function(event, ui){
-				alert("1페이지에서 2페이지로 전환 전에 1페이지에서 작동합니다.");
-			});
-			
-			$("#page2").bind("pagebeforeshow",function(event, ui){
-				alert("1페이지에서 2페이지로 전환 전에 2페이지에서 작동합니다.");
-			});
-			
-			$("#page1").bind("pagehide",function(event, ui){
-				alert("1페이지에서 2페이지로 전환이 끝난 후에 1페이지에서 작동합니다.");
-			});
-			
-			$("#page2").bind("pageshow",function(event, ui){
-				alert("1페이지에서 2페이지로 전환이 끝난 후에 2페이지에서 작동합니다.");
-			});
-	
-			$("#page2").bind("pagebeforehide",function(event, ui){
-				alert("2페이지에서 1페이지로 전환 전에 2페이지에서 작동합니다.");
-			});
-			
-			$("#page1").bind("pagebeforeshow",function(event, ui){
-				alert("2페이지에서 1페이지로 전환 전에 1페이지에서 작동합니다.");
-			});
-			
-			$("#page2").bind("pagehide",function(event, ui){
-				alert("2페이지에서 1페이지로 전환이 끝난 후에 2페이지에서 작동합니다.");
-			});
-			
-			$("#page1").bind("pageshow",function(event, ui){
-				alert("2페이지에서 1페이지로 전환이 끝난 후에 1페이지에서 작동합니다.");
-			});
-		});
-	</script>	
+	<script src="main.js"></script>
 </head>
 <body>
-
 	<!--주문 페이지-->
 	<section id="order_page" data-role="page">
-		<div data-role="header">
+		<header data-role="header" data-position="fixed">
 			<h1>메뉴 주문</h1>
-		</div>
-		<div data-role="content"> 			               
+			<a href="#homeActS1" data-role="button" data-icon="home" data-iconpos="notext"></a>
+			<a href="#basketPanel" data-role="button" data-icon="shop" data-iconpos="notext"></a>
+		</header>
+		<div data-role="content"> 	
+			<div data-role="panel" id="basketPanel" data-display="overlay" data-theme="b" data-position="right"><!--주문내역 패널-->
+				실험
+			</div>		               
 			<div class="ui-grid-b ui-responsive"> <!--3등분 반응형 그리드-->
 				<div class="ui-block-a" id="menu1">
 				  <a class="ui-btn ui-corner-all ui-shadow">아메리카노</a><br>
@@ -83,7 +51,7 @@
 				</div>
 			</div>
 		</div>
-		<div data-role="footer">
+		<footer data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="bottom">
 				<ul>
 					<li><a class="ui-btn-active ui-state-persist" href="#" data-icon="grid">메뉴</a></li>
@@ -91,17 +59,17 @@
 				</ul>
 			</div>
 			<a class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-mini" href="#">초기화</a>
-			<a class="ui-shadow ui-btn ui-corner-all ui-btn-inline" href="payment_page.html">결제하기</a>
-		</div>
+			<a class="ui-shadow ui-btn ui-corner-all ui-btn-inline" href="payment_page.html">결제하기</a>	
+		</footer>
 	</section>
-
-
-
-		<script>
-		$("#menu1").click(function() {
-			alert("버튼을 누르셨습니다.");
-		});
-		</script>
-
+	<!--홈버튼 액션시트-->
+	<div data-role="dialog" id="homeActS1" data-position="fixed">
+		<div data-role="content">
+			정보가 초기화됩니다. </br>
+			처음 화면으로 돌아가시겠습니까?
+			<a href="main.html" data-role="button">네</a>
+			<a href="#order_page" data-role="button">아니오</a>		
+		</div>
+	</div>
 </body>
 </html>

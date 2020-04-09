@@ -11,8 +11,11 @@
 <body>
     <!--장바구니 페이지-->
 	<section id='basket_page' data-role='page'>
-		<header data-role='header'>
-			<h1>장바구니</h1></header>
+		<header data-role='header' data-position="fixed">
+            <h1>장바구니</h1>
+            <a href="order_page.html" data-role="button" data-icon="arrow-l" data-iconpos="notext"></a>
+            <a href="#homeActS2" data-role="button" data-icon="home" data-iconpos="notext"></a>
+        </header>   
 		<div class='content'>
 			<ul data-role="listview">
 				<li data-role="list-divider">음료</li>
@@ -23,19 +26,27 @@
 				<li data-icon="minus"><a href="#">디저트2<span class="ui-li-count">1</span></a></li>
 			</ul>
 		</div>
-		<footer data-role='footer'>
+		<footer data-role='footer' data-position="fixed">
 			<div data-role="navbar" data-iconpos="bottom">
 				<ul>
 					<li><a href="order_page.html" data-icon="grid">메뉴</a></li>
 					<li><a class="ui-btn-active ui-state-persist" href='basket_page.html' data-icon="shop">장바구니</a></li>
 				</ul>
 				<ul data-role="listview" id="" data-inset="true">
-					<li id="item">데이터 로드 하기 전 . . .</li>
+					<li id="item"></li>
 				</ul>
-	
 			</div>
-			<button id="btnLoad2" data-inline="true">JSON</button>
-			<h4><a data-role="button" href='payment_page.html'>결제하기</a></h4>
-	  </section>
+            <h4><a data-role="button" href='payment_page.html'>결제하기</a></h4>
+        </footer>
+      </section>
+    <!--홈버튼 액션시트-->
+	<div data-role="dialog" id="homeActS2" data-position="fixed">
+		<div data-role="content">
+			정보가 초기화됩니다. </br>
+			처음 화면으로 돌아가시겠습니까?
+			<a href="main.html" data-role="button">네</a>
+			<a href="#basket_page" data-role="button">아니오</a>		
+		</div>
+	</div>
 </body>
 </html>
