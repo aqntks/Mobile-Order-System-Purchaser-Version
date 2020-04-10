@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Mobile-Order-System</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/JavaScript">
+
+    
+        //DB 생성
+        var db;
+        function createDB(){
+          db = window.openDatabase("basketDB","1.0", "장바구니DB", 1024*1024);
+        }
+
+        //테이블 생성
+        function createTable(){
+          db.transaction(function(tx){
+            tx.executeSql("create table Test(id,name,price)");
+          });
+        }
+  
+        //데이터 추가
+        function insertData(){
+          db.transaction(function(tx){
+            tx.executeSql("insert into Test values(?,?,?)",[menuID.value,menuName.value,menuPrice.value]);
+          });
+        }
+  
+        //데이터 출력
+        function selectData(){
+          db.transaction(function(tx){
+            tx.executeSql("select * from Test",[],
+              function(tx,result){            
+                for(var i = 0; i < result.rows.length; i++){
+                  var row = result.rows.item(i);
+                  document.getElementById('table1').innerHTML +=  "<tr><td>" + row['id'] + "</td><td>" + row['name'] + "</td></tr>" + row['price'] + "</td></tr>";
+                }            
+              });
+          });
+        }
+      </script>
+    </head>
+    <body> 
+      <button onclick="createDB()">DB 생성</button>
+      <br>        
+      <button onclick="createTable()">테이블생성</button>    
+      <br>  
+      ID: <input type="text" id="menuID">, 메뉴: <input type="text" id="menuName"> , 가격: <input type="text" id="menuPrice">
+      <button onclick="insertData()">데이터 입력</button>
+      <br>    
+      <button onclick="selectData()">데이타 조회</button>    
+      <br>
+      <table id="table1"></table>
+    </body>
+  </html>

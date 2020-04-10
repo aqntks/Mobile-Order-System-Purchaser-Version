@@ -1,15 +1,12 @@
-$(document).ready(function(){  
-	$('#btnLoad2').click(function(){		
-		$.getJSON('basket.json', function(jsonData){
-			var basketList = "";
-			$.each(jsonData.basketInfo, function(){
-				basketList += "<li>" + this.orderMenu + "</li>";
-			});
-			$('#listArea').empty();				
-			$('#listArea').append(basketList);
-			$('#listArea').listview('refresh');
-		});
-	});
-});	
-
+/*
+$.getJSON('example.json', function(jsonData){
+	var menuList = "";
+	$.each(jsonData.menuInfo, function(){
+		menuList += "<li><a>" + this.menu + "</a></li>";
+	});	
+	$('#menuList').empty();				
+	$('#menuList').append(menuList);
+	$('#menuList').listview('refresh');
+});
+*/
 

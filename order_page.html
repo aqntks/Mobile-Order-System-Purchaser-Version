@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script src="main.js"></script>
+	<script src="order_page.js"></script>
 </head>
 <body>
 	<!--주문 페이지-->
@@ -18,10 +18,24 @@
 			<a href="#basketPanel" data-role="button" data-icon="shop" data-iconpos="notext"></a>
 		</header>
 		<div data-role="content"> 	
-			<div data-role="panel" id="basketPanel" data-display="overlay" data-theme="b" data-position="right"><!--주문내역 패널-->
-				실험
-			</div>		               
-			<div class="ui-grid-b ui-responsive"> <!--3등분 반응형 그리드-->
+
+			<!--주문내역 패널-->
+			<div data-role="panel" id="basketPanel" data-display="overlay" data-theme="b" data-position="right">
+					<div class='content'>
+						<ul data-role="listview">
+							<li data-role="list-divider">음료</li>
+							<li data-icon="minus"><a href="#">음료1<span class="ui-li-count">1</span></a></li>
+							<li data-icon="minus"><a href="#">음료2<span class="ui-li-count">2</span></a></li>
+							<li data-role="list-divider">디저트</li>
+							<li data-icon="minus"><a href="#">디저트1<span class="ui-li-count">2</span></a></li>
+							<li data-icon="minus"><a href="#">디저트2<span class="ui-li-count">1</span></a></li>
+						</ul>
+					</div>
+						<h4><a data-role="button" href='payment_page.html'>결제하기</a></h4>
+			</div>		  
+			
+			
+			<div class="ui-grid-b ui-responsive"> 
 				<div class="ui-block-a" id="menu1">
 				  <a class="ui-btn ui-corner-all ui-shadow">아메리카노</a><br>
 				</div>
@@ -48,8 +62,14 @@
 				</div>
 				  <div class="ui-block-c" id="menu9">
 					<a class="ui-btn ui-corner-all ui-shadow">사과주스</a><br>
-				</div>
+				</div>	
+
+			<!--
+				<ul data-role="listview" id="menuList" data-inset="true">
+					<li id="item"></li>
+				</ul>
 			</div>
+			-->	
 		</div>
 		<footer data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="bottom">
