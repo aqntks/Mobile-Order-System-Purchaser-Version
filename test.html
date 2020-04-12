@@ -19,25 +19,25 @@
         //테이블 생성
         function createTable(){
           db.transaction(function(tx){
-            tx.executeSql("create table Test(id,name,price)");
+            tx.executeSql("create table Basket(name,price,count)");
           });
         }
   
         //데이터 추가
         function insertData(){
           db.transaction(function(tx){
-            tx.executeSql("insert into Test values(?,?,?)",[menuID.value,menuName.value,menuPrice.value]);
+            tx.executeSql("insert into Basket values(?,?,?)",[menuName.value,menuPrice.value,menuCount.value]);
           });
         }
   
         //데이터 출력
         function selectData(){
           db.transaction(function(tx){
-            tx.executeSql("select * from Test",[],
+            tx.executeSql("select * from Basket",[],
               function(tx,result){            
                 for(var i = 0; i < result.rows.length; i++){
                   var row = result.rows.item(i);
-                  document.getElementById('table1').innerHTML +=  "<tr><td>" + row['id'] + "</td><td>" + row['name'] + "</td></tr>" + row['price'] + "</td></tr>";
+                  document.getElementById('table1').innerHTML += "</td><td>" + row['name'] + "</td></tr>" + row['price']  + "</td></tr>" + row['count'] + "</td></tr>";
                 }            
               });
           });
@@ -49,7 +49,7 @@
       <br>        
       <button onclick="createTable()">테이블생성</button>    
       <br>  
-      ID: <input type="text" id="menuID">, 메뉴: <input type="text" id="menuName"> , 가격: <input type="text" id="menuPrice">
+      메뉴: <input type="text" id="menuName"> 가격: <input type="text" id="menuPrice"> 수량: <input type="text" id="menuCount">
       <button onclick="insertData()">데이터 입력</button>
       <br>    
       <button onclick="selectData()">데이타 조회</button>    

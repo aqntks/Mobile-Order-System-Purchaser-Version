@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="basketDatabase.js"></script>
+	<script src="menuDatabase.js"></script>
 	<script src="order_page.js"></script>
+	
 </head>
 <body>
 	<!--주문 페이지-->
 	<section id="order_page" data-role="page">
 		<header data-role="header" data-position="fixed">
 			<h1>메뉴 주문</h1>
-			<a href="#homeActS1" data-role="button" data-icon="home" data-iconpos="notext"></a>
-			<a href="#basketPanel" data-role="button" data-icon="shop" data-iconpos="notext"></a>
+			<a href="#homeActS1" data-role="button" data-icon="home" data-iconpos="notext"></a> <!--처음으로-->
+			<a href="#basketPanel" data-role="button" data-icon="shop" data-iconpos="notext"></a> <!--간편 장바구니 아이콘-->
 		</header>
 		<div data-role="content"> 	
 
@@ -34,7 +37,7 @@
 						<h4><a data-role="button" href='payment_page.html'>결제하기</a></h4>
 			</div>		  
 			
-			
+				<!--
 			<div class="ui-grid-b ui-responsive"> 
 				<div class="ui-block-a" id="menu1">
 				  <a class="ui-btn ui-corner-all ui-shadow">아메리카노</a><br>
@@ -63,13 +66,14 @@
 				  <div class="ui-block-c" id="menu9">
 					<a class="ui-btn ui-corner-all ui-shadow">사과주스</a><br>
 				</div>	
+				-->	
 
-			<!--
+				<!--메뉴 출력-->
 				<ul data-role="listview" id="menuList" data-inset="true">
-					<li id="item"></li>
+					<li id="menuItem"></li>
 				</ul>
 			</div>
-			-->	
+			
 		</div>
 		<footer data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="bottom">
