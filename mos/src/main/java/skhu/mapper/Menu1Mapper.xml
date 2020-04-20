@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.mapper.Menu1Mapper">
+
+	<select id="findOne" resultType="Menu1">
+		SELECT * FROM Menu1 WHERE id = #{id}
+	</select>
+
+	<select id="findByName" resultType="Menu1">
+		SELECT * FROM Menu1 WHERE name = #{studentNumber}
+	</select>
+
+	<select id="findAll" resultType="Menu1">
+		SELECT * FROM Menu1
+	</select>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT Menu1 (name, price)
+		VALUES (#{name}, #{price})
+	</insert>
+
+	<update id="update">
+		UPDATE Menu1 SET
+		name = #{name},
+		price = #{price}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM Menu1 WHERE id = #{id}
+	</delete>
+
+</mapper>
