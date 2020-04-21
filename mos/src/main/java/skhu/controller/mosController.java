@@ -16,31 +16,48 @@ import skhu.mapper.Menu1Mapper;
 @RequestMapping("/")
 public class mosController {
 
-    @Autowired Menu1Mapper menu1Mapper;
-    
-    @RequestMapping("main")
-    public String index(Model model) {
-        return "main";
-    }
-    
-    @RequestMapping("order_page")
-    public String list(Model model) {
-        List<Menu1> menus = menu1Mapper.findAll();
-        model.addAttribute("menus", menus);
-        return "order_page";
-    }
-    
-    @RequestMapping(value="/basket_page", method=RequestMethod.GET)
-    public String basket_page(Model model) {
-        return "basket_page";
-    }
-    
-    @RequestMapping(value="/payment_page", method=RequestMethod.GET)
-    public String payment_page(Model model) {
-        return "payment_page";
-    }
-    
-  /*  @RequestMapping("list")
+	@Autowired Menu1Mapper menu1Mapper;
+
+	@RequestMapping("main")
+	public String main(Model model) {
+		return "main";
+	}
+
+	@RequestMapping("order_page")
+	public String order_page(Model model) {
+		List<Menu1> menus = menu1Mapper.findAll();
+		model.addAttribute("menus", menus);
+		return "order_page";
+	}
+
+	@RequestMapping(value="/basket_page", method=RequestMethod.GET)
+	public String basket_page(Model model) {
+		return "basket_page";
+	}
+
+	@RequestMapping(value="/payment_page", method=RequestMethod.GET)
+	public String payment_page(Model model) {
+		return "payment_page";
+	}
+
+	@RequestMapping("seller_main")
+	public String seller_main(Model model) {
+		return "seller_main";
+	}
+
+	@RequestMapping(value="/menu_management_page", method=RequestMethod.GET)
+	public String menu_management_page(Model model) {
+		List<Menu1> menus = menu1Mapper.findAll();
+		model.addAttribute("menus", menus);
+		return "menu_management_page";
+	}
+	
+	@RequestMapping(value="/add_menu_page", method=RequestMethod.GET)
+	public String add_menu_page(Model model) {
+		return "add_menu_page";
+	}
+
+	/*  @RequestMapping("list")
     public String list(Model model) {
         List<Student> students = studentMapper.findAll();
         model.addAttribute("students", students);
