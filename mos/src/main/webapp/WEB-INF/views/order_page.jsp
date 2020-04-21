@@ -19,9 +19,29 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="${R}res/basketDatabase.js"></script>
 
-<script type="text/javascript">
+<script>
+	$(document).ready(function() { // DB생성
+		createDB();
+		createTable();
+		selectData();
+	});
 
+	//메뉴 클릭 시 장바구니에 추가 함수
+	function addBasket(menuId, menuName, menuPrice){
+		db.transaction(function(tx){
+			tx.executeSql("SELECT count FROM Basket WHERE menuId = ?", [menuId], function(tx, result){
+				if(result.rows.length > 0){
+				var row = result.rows.item(0);
+				insertData(menuId, menuName, menuPrice, row.count);
+				}
+				else{
+					insertData(menuId, menuName, menuPrice, 0);
+				}
+			});
+		});
+		}	
 </script>
 </head>
 <body>
@@ -43,17 +63,7 @@
 				<div data-role="panel" id="basketPanel" data-display="overlay"
 					data-theme="b" data-position="right">
 					<div class='content'>
-						<ul data-role="listview">
-							<li data-role="list-divider">음료</li>
-							<li data-icon="minus"><a href="#">음료1<span
-									class="ui-li-count">1</span></a></li>
-							<li data-icon="minus"><a href="#">음료2<span
-									class="ui-li-count">2</span></a></li>
-							<li data-role="list-divider">디저트</li>
-							<li data-icon="minus"><a href="#">디저트1<span
-									class="ui-li-count">2</span></a></li>
-							<li data-icon="minus"><a href="#">디저트2<span
-									class="ui-li-count">1</span></a></li>
+						<ul data-role="listview" id="basketList" data-inset="true">
 						</ul>
 					</div>
 					<h4>
@@ -64,7 +74,8 @@
 				<!--메뉴 출력-->
 				<ul data-role="listview" id="menuList" data-inset="true">
 					<c:forEach var="menu" items="${ menus }">
-						<li id="menuItem${menu.id} }"><a>
+						<li id="menuItem${menu.id} }"><a
+							onclick="addBasket(${menu.id}, '${menu.name}', ${menu.price});">
 								<h3>${ menu.name }</h3>
 								<p>${ menu.price }원</p>
 						</a></li>
