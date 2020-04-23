@@ -9,7 +9,7 @@
 	</select>
 
 	<select id="findByName" resultType="Menu1">
-		SELECT * FROM Menu1 WHERE name = #{studentNumber}
+		SELECT * FROM Menu1 WHERE name = #{name}
 	</select>
 
 	<select id="findAll" resultType="Menu1">
@@ -31,5 +31,4 @@
 	<delete id="delete">
 		DELETE FROM Menu1 WHERE id = #{id}
 	</delete>
-
 </mapper>

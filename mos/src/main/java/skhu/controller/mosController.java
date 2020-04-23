@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import skhu.dto.Menu1;
 import skhu.mapper.Menu1Mapper;
@@ -52,51 +53,35 @@ public class mosController {
 		return "menu_management_page";
 	}
 	
-	@RequestMapping(value="/add_menu_page", method=RequestMethod.GET)
-	public String add_menu_page(Model model) {
-		return "add_menu_page";
+	@RequestMapping(value="create", method=RequestMethod.GET)
+	public String add_menu_page(Model model) {	
+        Menu1 menu1 = new Menu1();
+        model.addAttribute("menu1", menu1);
+		return "edit_menu_page";	
 	}
 
-	/*  @RequestMapping("list")
-    public String list(Model model) {
-        List<Student> students = studentMapper.findAll();
-        model.addAttribute("students", students);
-        return "student/list";
-    }
-
-    @RequestMapping(value="create", method=RequestMethod.GET)
-    public String create(Model model) {
-        Student student = new Student();
-        List<Department> departments = departmentMapper.findAll();
-        model.addAttribute("student", student);
-        model.addAttribute("departments", departments);
-        return "student/edit";
-    }
-
     @RequestMapping(value="create", method=RequestMethod.POST)
-    public String create(Model model, Student student) {
-        studentMapper.insert(student);
-        return "redirect:list";
+    public String create(Model model, Menu1 menu1) {
+        menu1Mapper.insert(menu1);
+        return "redirect:menu_management_page";
     }
 
     @RequestMapping(value="edit", method=RequestMethod.GET)
     public String edit(Model model, @RequestParam("id") int id) {
-        Student student = studentMapper.findOne(id);
-        List<Department> departments = departmentMapper.findAll();
-        model.addAttribute("student", student);
-        model.addAttribute("departments", departments);
-        return "student/edit";
+        Menu1 menu1 = menu1Mapper.findOne(id);
+        model.addAttribute("menu1", menu1);
+        return "edit_menu_page";
     }
 
     @RequestMapping(value="edit", method=RequestMethod.POST)
-    public String edit(Model model, Student student) {
-        studentMapper.update(student);
-        return "redirect:list";
+    public String edit(Model model, Menu1 menu1) {
+        menu1Mapper.update(menu1);
+        return "redirect:menu_management_page";
     }
 
     @RequestMapping("delete")
     public String delete(Model model, @RequestParam("id") int id) {
-        studentMapper.delete(id);
-        return "redirect:list";
-    } */
+        menu1Mapper.delete(id);
+        return "redirect:menu_management_page";
+    }
 }
