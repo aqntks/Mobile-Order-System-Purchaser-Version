@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,12 +14,10 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<link rel="stylesheet"
-	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="${R}res/common.js"></script>
+<link rel="stylesheet" href="${R}res/common.css">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script
-	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
 </head>
 <body>
 	<div class="container">
@@ -28,9 +28,8 @@
 			</header>
 			<div data-role="content">
 				<a data-role="button" id="start_btn" data-theme="b"
-					href='sales_page'>판매</a>
-					<a data-role="button" id="start_btn" data-theme="b"
-					href='menu_management_page'>메뉴 관리</a>
+					href='sales_page'>판매</a> <a data-role="button" id="start_btn"
+					data-theme="b" href='menu_management_page'>메뉴 관리</a>
 			</div>
 		</section>
 

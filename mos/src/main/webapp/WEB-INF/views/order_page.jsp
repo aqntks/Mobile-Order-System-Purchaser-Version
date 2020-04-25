@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
@@ -42,8 +42,17 @@
 			});
 		});
 		}	
+
+	function deleteMenu(id){
+		db.transaction(function(tx){
+			tx.executeSql("DELETE FROM Basket WHERE rowid = ?;", [id]);
+		});
+		idReset();
+		location.reload();
+		}	
 </script>
 </head>
+
 <body>
 	<div class="container">
 		<!--주문 페이지-->

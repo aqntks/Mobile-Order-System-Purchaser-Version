@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +17,23 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<script src="${R}res/basketDatabase.js"></script>
+<script>
+	$(document).ready(function() { // DB생성
+		createDB();
+		createTable();
+		selectData();
+	});
+
+	function deleteMenu(id){
+		db.transaction(function(tx){
+			tx.executeSql("DELETE FROM Basket WHERE rowid = ?;", [id]);
+		});
+		location.reload();
+		idReset();
+		}	
+</script>
 </head>
 <body>
 	<div class="container">
@@ -42,6 +58,9 @@
 					<li data-icon="minus"><a href="#">디저트2<span
 							class="ui-li-count">1</span></a></li>
 				</ul>
+
+				<ul data-role="listview" id="basketList" data-inset="true">
+				</ul>
 			</div>
 			<footer data-role='footer' data-position="fixed">
 				<div data-role="navbar" data-iconpos="bottom">
@@ -59,8 +78,8 @@
 		<!--홈버튼 액션시트-->
 		<div data-role="dialog" id="homeActS2" data-position="fixed">
 			<div data-role="content">
-				정보가 초기화됩니다. </br> 처음 화면으로 돌아가시겠습니까? <a href="main"
-					data-role="button">네</a> <a href="#basket_page" data-role="button">아니오</a>
+				정보가 초기화됩니다. </br> 처음 화면으로 돌아가시겠습니까? <a href="main" data-role="button">네</a>
+				<a href="#basket_page" data-role="button">아니오</a>
 			</div>
 		</div>
 

@@ -39,9 +39,17 @@ function selectData(){
 				function(tx,result){            
 			for(var i = 0; i < result.rows.length; i++){
 				var row = result.rows.item(i);
-				document.getElementById('basketList').innerHTML += "<li data-icon=\"minus\"><a href=\"#\">" + row['name']
-				+ "<span class=\"ui-li-count\">" + row['count'] + "</span></a></li>";
+				document.getElementById('basketList').innerHTML += 
+					"<li data-icon=\"minus\"><a onclick=\"deleteMenu(" +   (i+1)  + ")\">" 
+					+ row['name'] + "<span class=\"ui-li-count\">" + row['count'] + "</span></a></li>";
 			}            
 		});
+	});
+}
+
+function idReset(){
+	
+	db.transaction(function(tx){
+		tx.executeSql("ALTER TABLE Basket AUTO_INCREMENT=1; SET @COUNT = 0; UPDATE Bakset SET rowid = @COUNT:=@COUNT+1");
 	});
 }

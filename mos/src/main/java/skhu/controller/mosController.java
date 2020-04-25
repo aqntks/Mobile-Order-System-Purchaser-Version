@@ -82,6 +82,8 @@ public class mosController {
     @RequestMapping("delete")
     public String delete(Model model, @RequestParam("id") int id) {
         menu1Mapper.delete(id);
+        
+      //  menu1Mapper.updateid();
         return "redirect:menu_management_page";
     }
 }

@@ -14,4 +14,5 @@ public interface Menu1Mapper {
 	void insert(Menu1 menu1);
 	void update(Menu1 menu1);
 	void delete(int id);
+	//void updateid();
 }

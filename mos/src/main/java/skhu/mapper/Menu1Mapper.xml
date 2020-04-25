@@ -5,11 +5,13 @@
 <mapper namespace="skhu.mapper.Menu1Mapper">
 
 	<select id="findOne" resultType="Menu1">
-		SELECT * FROM Menu1 WHERE id = #{id}
+		SELECT * FROM Menu1 WHERE id =
+		#{id}
 	</select>
 
 	<select id="findByName" resultType="Menu1">
-		SELECT * FROM Menu1 WHERE name = #{name}
+		SELECT * FROM Menu1 WHERE
+		name = #{name}
 	</select>
 
 	<select id="findAll" resultType="Menu1">
@@ -17,7 +19,8 @@
 	</select>
 
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
-		INSERT Menu1 (name, price)
+		INSERT
+		Menu1 (name, price)
 		VALUES (#{name}, #{price})
 	</insert>
 
@@ -25,10 +28,20 @@
 		UPDATE Menu1 SET
 		name = #{name},
 		price = #{price}
-		WHERE id = #{id}
+		WHERE
+		id = #{id}
 	</update>
 
 	<delete id="delete">
 		DELETE FROM Menu1 WHERE id = #{id}
 	</delete>
+
+<!--  
+	<sql id="updateid">
+		ALTER TABLE Menu1 AUTO_INCREMENT=1;
+		SET @COUNT = 0;
+		UPDATE Menu1 SET id = @COUNT:=@COUNT+1
+	</sql>
+	
+-->
 </mapper>
