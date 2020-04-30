@@ -5,15 +5,18 @@
     <meta charset="UTF-8"/>
     <title>Mobile-Order-System</title>       
     <style type="text/css">
-         p {line-height: 2pt; background-color: rgba(196, 186, 132, 0.6); margin: 10px; padding: 10px; border: medium inset navy} <!--줄높이, 배경색, 테두리 지정-->
-    </style>
+        p {line-height: 10pt; background-color: rgba(248, 248, 248, 0.6); margin: 10px; padding: 30px; border: medium inset rgb(8, 145, 236)}
+        #list {overflow: auto; width: 80%; height: 150px} <!--박스안에 스크롤 자동생성, 크기 지정-->
+ </style>
 </head>
 <body>
     <form method="get" action="">
-       <p> <input type="button" name="orderBtn" value="주문하기" onClick="alert('주문하신메뉴가 맞나요?')"/></p>
-    
-    </form>
+       <p id="list"> <!--주문내역 출력--></p>
+       
 
+    </form>
+    
+    <input type="button" name="orderBtn" value="주문하기" onClick="alert('주문하신메뉴가 맞나요?')"/>
  
 </body>
 </html>
