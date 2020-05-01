@@ -24,6 +24,11 @@ public class mosController {
 		return "main";
 	}
 
+	@RequestMapping("order_checkpage")
+	public String order_checkpage(Model model) {
+		return "order_checkpage";
+	}
+
 	@RequestMapping("order_page")
 	public String order_page(Model model) {
 		List<Menu1> menus = menu1Mapper.findAll();
