@@ -15,6 +15,4 @@ public interface BasketMapper {
 	void insert(Basket basket);
 	void update(Basket basket);
 	void delete(int id);
-	//	void updateid();
-
 }

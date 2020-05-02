@@ -27,7 +27,7 @@
 	<update id="update">
 		UPDATE Basket SET
 		menuName = #{menuName},
-		menuPrice = #{menuPrice}
+		menuPrice = #{menuPrice},
 		count = #{count}
 		WHERE
 		id = #{id}
@@ -36,13 +36,4 @@
 	<delete id="delete">
 		DELETE FROM Basket WHERE id = #{id}
 	</delete>
-
-<!--  
-	<sql id="updateid">
-		ALTER TABLE Basket AUTO_INCREMENT=1;
-		SET @COUNT = 0;
-		UPDATE Basket SET id = @COUNT:=@COUNT+1
-	</sql>
-	
--->
 </mapper>

@@ -1,45 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet" media="screen">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="${R}res/common.js"></script>
-<link rel="stylesheet" href="${R}res/common.css">
+<link rel="stylesheet"
+	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
 	<div class="container">
-		<h1>메뉴목록</h1>
-		<div class="pull-right mb5">
-			<a href="create" class="btn btn-info"> <span
-				class="glyphicon glyphicon-user"></span> 메뉴등록
-			</a>
-		</div>
-		<table class="table table-bordered mt5">
-			<thead>
-				<tr>
-					<th>메뉴</th>
-					<th>가격</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="menus" items="${ menus }">
-					<tr data-url="edit?id=${ menus.id }">
-						<td>${ menus.name }</td>
-						<td>${ menus.price }</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+		<section id="menu_management_page" data-role="page">
+			<header data-role="header" data-position="fixed">
+				<h1>메뉴 관리</h1>
+				<a href="seller_main" data-role="button" data-icon="arrow-l"
+					data-iconpos="notext"></a> <a href="seller_main" data-role="button"
+					data-icon="home" data-iconpos="notext"></a>
+			</header>
+			<div class='content'>
+<!-- 등록된 메뉴 출력 -->
+				<ul data-role="listview" data-inset="true">
+					<c:forEach var="menus" items="${ menus }">
+						<li><a href="edit?id=${ menus.id }"><h3>${ menus.name }</h3>
+								<p>${ menus.price }원</p> </a></li>
+					</c:forEach>
+				</ul>
+			</div>
+			<footer data-role='footer' data-position="fixed">
+			<h4>
+					<a data-role="button" href="create">메뉴추가</a>
+				</h4>
+			</footer>
+		</section>
 	</div>
 </body>
 </html>

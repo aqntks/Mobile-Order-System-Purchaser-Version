@@ -35,13 +35,4 @@
 	<delete id="delete">
 		DELETE FROM Menu1 WHERE id = #{id}
 	</delete>
-
-<!--  
-	<sql id="updateid">
-		ALTER TABLE Menu1 AUTO_INCREMENT=1;
-		SET @COUNT = 0;
-		UPDATE Menu1 SET id = @COUNT:=@COUNT+1
-	</sql>
-	
--->
 </mapper>

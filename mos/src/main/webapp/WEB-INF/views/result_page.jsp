@@ -12,40 +12,30 @@
 </head>
 <body>
 	<div class="container">
-<!--장바구니 페이지-->
+<!--주문 내역 페이지-->
 		<section id='basket_page' data-role='page'>
 			<header data-role='header' data-position="fixed">
-				<h1>장바구니</h1>
-<!--처음으로-->
-				<a href="order_page" data-role="button" data-icon="arrow-l"
-					data-iconpos="notext"></a> <a href="#homeActS2" data-role="button"
-					data-icon="home" data-iconpos="notext"></a>
+				<h1>주문 내역</h1>
 			</header>
 			<div class='content'>
-<!--장바구니 내역-->
-				<ul data-role="listview" id="basketLists" data-inset="true">
-					<li data-role="list-divider">음료</li>
-					<c:forEach var="basket" items="${ baskets }">
-						<li data-icon="minus" id="basketItem${basket.id} }"><a href="basketDelete?id=${ basket.id }">${ basket.menuName }
-								<span class="ui-li-count">${ basket.count }</span>
-						</a></li>
-					</c:forEach>
-					<li data-role="list-divider">디저트</li>
-				</ul>
+<!--주문 내역-->
+
+					<h4><a data-role="button">주문번호 : 11</a></h4>
 				
-					<h4><a data-role="button">합계 : ${count}원</a></h4>
-						
+				<ul data-role="listview" id="basketLists" data-inset="true">
+					<c:forEach var="basket" items="${ baskets }">
+						<li id="basketItem${basket.id} }">${ basket.menuName }<span
+							class="ui-li-count">${ basket.count }</span>
+						</li>
+					</c:forEach>
+				</ul>
+				<h4>
+					<a data-role="button">합계 : ${count}원</a>
+				</h4>
 			</div>
 			<footer data-role='footer' data-position="fixed">
-				<div data-role="navbar" data-iconpos="bottom">
-					<ul>
-						<li><a href="order_page" data-icon="grid">메뉴</a></li>
-						<li><a class="ui-btn-active ui-state-persist"
-							href='basket_page' data-icon="shop">장바구니</a></li>
-					</ul>
-				</div>
 				<h4>
-					<a data-role="button" href='payment_page'>결제하기</a>
+					<a data-role="button" href='purchaser_main'>홈으로</a>
 				</h4>
 			</footer>
 		</section>
