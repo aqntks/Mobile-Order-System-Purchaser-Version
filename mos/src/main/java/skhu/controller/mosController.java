@@ -38,6 +38,11 @@ public class mosController {
 		return "order_checkpage";
 	}
 
+	@RequestMapping("order_checkpage")
+	public String order_checkpage(Model model) {
+		return "order_checkpage";
+	}
+
 	@RequestMapping("order_page")
 	public String order_page(Model model) {
 		Basket basket = new Basket();
