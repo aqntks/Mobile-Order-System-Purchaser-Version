@@ -1,9 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 
 <c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link
@@ -21,15 +27,19 @@
 	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script src="${R}res/basketDatabase.js"></script>
 
+
 <script>
 	$(document).ready(function() { // DB생성
 		createDB();
 		createTable();
 		selectData();
 	});
-
+	
 	//메뉴 클릭 시 장바구니에 추가 함수
 	function addBasket(menuId, menuName, menuPrice){
+		
+		basket
+		
 		db.transaction(function(tx){
 			tx.executeSql("SELECT count FROM Basket WHERE menuId = ?", [menuId], function(tx, result){
 				if(result.rows.length > 0){
@@ -83,11 +93,17 @@
 				<!--메뉴 출력-->
 				<ul data-role="listview" id="menuList" data-inset="true">
 					<c:forEach var="menu" items="${ menus }">
-						<li id="menuItem${menu.id} }"><a
-							onclick="addBasket(${menu.id}, '${menu.name}', ${menu.price});">
-								<h3>${ menu.name }</h3>
-								<p>${ menu.price }원</p>
-						</a></li>
+						<li id="menuItem${menu.id} }"><form:form method="post"
+								action="basketInsert" modelAttribute="basket">
+								<button type="submit" class="btn btn-primary">
+								
+									<h3>${ menu.name }</h3>
+									<p>${ menu.price }원</p>
+									<input type="hidden" name="menuName" value="${ menu.name }"></input>
+									<input type="hidden" name="menuPrice" value="${ menu.price }"></input>
+									<input type="hidden" name="count" value="1"></input>
+								</button>
+							</form:form></li>
 					</c:forEach>
 				</ul>
 			</div>

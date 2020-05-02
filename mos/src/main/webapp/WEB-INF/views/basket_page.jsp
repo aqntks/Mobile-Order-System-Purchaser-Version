@@ -26,13 +26,13 @@
 		selectData();
 	});
 
-	function deleteMenu(id){
-		db.transaction(function(tx){
-			tx.executeSql("DELETE FROM Basket WHERE rowid = ?;", [id]);
+	function deleteMenu(id) {
+		db.transaction(function(tx) {
+			tx.executeSql("DELETE FROM Basket WHERE rowid = ?;", [ id ]);
 		});
 		location.reload();
 		idReset();
-		}	
+	}
 </script>
 </head>
 <body>
@@ -46,17 +46,15 @@
 					data-icon="home" data-iconpos="notext"></a>
 			</header>
 			<div class='content'>
-				<ul data-role="listview">
+
+				<ul data-role="listview" id="basketLists" data-inset="true">
 					<li data-role="list-divider">음료</li>
-					<li data-icon="minus"><a href="#">음료1<span
-							class="ui-li-count">1</span></a></li>
-					<li data-icon="minus"><a href="#">음료2<span
-							class="ui-li-count">2</span></a></li>
+					<c:forEach var="basket" items="${ baskets }">
+						<li data-icon="minus" id="basketItem${basket.id} }"><a href="basketDelete?id=${ basket.id }">${ basket.menuName }
+								<span class="ui-li-count">${ basket.count }</span>
+						</a></li>
+					</c:forEach>
 					<li data-role="list-divider">디저트</li>
-					<li data-icon="minus"><a href="#">디저트1<span
-							class="ui-li-count">2</span></a></li>
-					<li data-icon="minus"><a href="#">디저트2<span
-							class="ui-li-count">1</span></a></li>
 				</ul>
 
 				<ul data-role="listview" id="basketList" data-inset="true">

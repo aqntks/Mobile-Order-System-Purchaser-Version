@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.mapper.BasketMapper">
+
+	<select id="findOne" resultType="Basket">
+		SELECT * FROM Basket WHERE id =
+		#{id}
+	</select>
+
+	<select id="findByName" resultType="Basket">
+		SELECT * FROM Basket WHERE
+		menuName = #{menuName}
+	</select>
+
+	<select id="findAll" resultType="Basket">
+		SELECT * FROM Basket
+	</select>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT
+		Basket (menuName, menuPrice, count)
+		VALUES (#{menuName}, #{menuPrice}, #{count})
+	</insert>
+
+	<update id="update">
+		UPDATE Basket SET
+		menuName = #{menuName},
+		menuPrice = #{menuPrice}
+		count = #{count}
+		WHERE
+		id = #{id}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM Basket WHERE id = #{id}
+	</delete>
+
+<!--  
+	<sql id="updateid">
+		ALTER TABLE Basket AUTO_INCREMENT=1;
+		SET @COUNT = 0;
+		UPDATE Basket SET id = @COUNT:=@COUNT+1
+	</sql>
+	
+-->
+</mapper>

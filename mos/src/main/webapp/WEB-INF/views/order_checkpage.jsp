@@ -16,7 +16,7 @@
 
     </form>
     
-    <input type="button" name="orderBtn" value="주문하기" onClick="alert('주문하신메뉴가 맞나요?')"/>
+    <input type="button" name="orderBtn" value="주문하기" onClick="alert('	')"/>
  
 </body>
 </html>

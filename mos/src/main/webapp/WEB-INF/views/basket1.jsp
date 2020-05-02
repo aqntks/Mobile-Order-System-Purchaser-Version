@@ -18,10 +18,10 @@
 </head>
 <body>
 	<div class="container">
-		<h1>메뉴목록</h1>
+		<h1>장바구니목록</h1>
 		<div class="pull-right mb5">
 			<a href="create" class="btn btn-info"> <span
-				class="glyphicon glyphicon-user"></span> 메뉴등록
+				class="glyphicon glyphicon-user"></span> 장바구니등록
 			</a>
 		</div>
 		<table class="table table-bordered mt5">
@@ -29,13 +29,15 @@
 				<tr>
 					<th>메뉴</th>
 					<th>가격</th>
+					<th>수량</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="menus" items="${ menus }">
-					<tr data-url="edit?id=${ menus.id }">
-						<td>${ menus.name }</td>
-						<td>${ menus.price }</td>
+				<c:forEach var="baskets" items="${ baskets }">
+					<tr data-url="basketDelete?id=${ baskets.id }">
+						<td>${ baskets.menuName }</td>
+						<td>${ baskets.menuPrice }</td>
+						<td>${ baskets.count }</td>
 					</tr>
 				</c:forEach>
 			</tbody>

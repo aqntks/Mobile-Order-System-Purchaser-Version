@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import skhu.dto.Basket;
 import skhu.dto.Menu1;
+import skhu.mapper.BasketMapper;
 import skhu.mapper.Menu1Mapper;
 
 
@@ -18,14 +20,30 @@ import skhu.mapper.Menu1Mapper;
 public class mosController {
 
 	@Autowired Menu1Mapper menu1Mapper;
+	@Autowired BasketMapper basketMapper;
 
 	@RequestMapping("main")
 	public String main(Model model) {
 		return "main";
 	}
+	
+	@RequestMapping("test1")
+	public String test1(Model model) {
+		return "test1";
+	}
+	
+
+	@RequestMapping("order_checkpage")
+	public String order_checkpage(Model model) {
+		return "order_checkpage";
+	}
 
 	@RequestMapping("order_page")
 	public String order_page(Model model) {
+		Basket basket = new Basket();
+		model.addAttribute("basket", basket);
+		//List<Basket> baskets = basketMapper.findAll();
+		//model.addAttribute("baskets", baskets);
 		List<Menu1> menus = menu1Mapper.findAll();
 		model.addAttribute("menus", menus);
 		return "order_page";
@@ -33,6 +51,15 @@ public class mosController {
 
 	@RequestMapping(value="/basket_page", method=RequestMethod.GET)
 	public String basket_page(Model model) {
+		List<Basket> baskets = basketMapper.findAll();
+		model.addAttribute("baskets", baskets);
+		return "basket_page";
+	}
+	
+	@RequestMapping(value="/basket_page", method=RequestMethod.POST)
+	public String basket_page2(Model model) {
+		List<Basket> baskets = basketMapper.findAll();
+		model.addAttribute("baskets", baskets);
 		return "basket_page";
 	}
 
@@ -86,4 +113,27 @@ public class mosController {
       //  menu1Mapper.updateid();
         return "redirect:menu_management_page";
     }
+    
+    
+    @RequestMapping(value="/basket1", method=RequestMethod.GET)
+	public String basket1(Model model) {
+		List<Basket> baskets = basketMapper.findAll();
+		model.addAttribute("baskets", baskets);
+		return "basket1";
+	}
+    
+    @RequestMapping(value="basketInsert", method=RequestMethod.POST)
+    public String basketInsert(Model model, Basket basket) {
+        basketMapper.insert(basket);
+        return "redirect:order_page";
+    }
+    
+    @RequestMapping("basketDelete")
+    public String basketDelete(Model model, @RequestParam("id") int id) {
+        basketMapper.delete(id);
+        
+      //  menu1Mapper.updateid();
+        return "redirect:basket_page";
+    }
+    
 }
