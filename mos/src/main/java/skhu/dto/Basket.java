@@ -14,7 +14,6 @@ public class Basket {
         this.id = id;
     }
 
-    
 	public String getMenuName() {
 		return menuName;
 	}

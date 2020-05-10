@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import skhu.dto.Basket;
 import skhu.dto.Menu1;
+import skhu.dto.Order;
 import skhu.mapper.BasketMapper;
 import skhu.mapper.Menu1Mapper;
+import skhu.mapper.OrderMapper;
 
 @Controller
 @RequestMapping("/")
@@ -20,13 +22,12 @@ public class mosController {
 
 	@Autowired Menu1Mapper menu1Mapper;
 	@Autowired BasketMapper basketMapper;
+	@Autowired OrderMapper orderMapper;
 
 	@RequestMapping("order_checkpage")
 	public String order_checkpage(Model model) {
 		return "order_checkpage";
 	}
-	
-	
 
 	//구매자----------------------------------------------------------------------------------
 
@@ -35,7 +36,7 @@ public class mosController {
 	public String main(Model model) {
 		return "main";
 	}
-	
+
 	@RequestMapping("purchaser_main")
 	public String purchaser_main(Model model) {
 		return "purchaser_main";
@@ -50,7 +51,7 @@ public class mosController {
 		model.addAttribute("menus", menus);
 		List<Basket> baskets = basketMapper.findAll();
 		model.addAttribute("baskets", baskets);
-		
+
 		int result = 0;
 		for(Basket bs : baskets) {
 			result += bs.getMenuPrice() * bs.getCount();
@@ -113,7 +114,7 @@ public class mosController {
 			basketMapper.update(check);
 		}
 		else {
-		basketMapper.delete(id);
+			basketMapper.delete(id);
 		}
 		return "redirect:basket_page";
 	}
@@ -138,6 +139,17 @@ public class mosController {
 	public String seller_main(Model model) {
 		return "seller_main";
 	}
+
+	//판매 화면
+	@RequestMapping(value="sale_page", method=RequestMethod.GET)
+	public String sale_page(Model model) {
+		List<Order> orders = orderMapper.findAll();
+		List<Menu1> menus = menu1Mapper.findAll();
+		model.addAttribute("orders", orders);
+		model.addAttribute("menus", menus);
+		return "sale_page";
+	}
+	
 
 	//메뉴 관리화면
 	@RequestMapping(value="menu_management_page", method=RequestMethod.GET)

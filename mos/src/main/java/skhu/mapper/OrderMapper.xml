@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.mapper.OrderMapper">
+
+	<select id="findOne" resultType="Order">
+		SELECT * FROM Order WHERE id =
+		#{id}
+	</select>
+
+	<select id="findByBasketId" resultType="Order">
+		SELECT * FROM Order WHERE
+		basketId = #{basketId}
+	</select>
+
+	<select id="findAll" resultType="Order">
+		SELECT * FROM Order
+	</select>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT
+		Basket (basketId, price)
+		VALUES (#{basketId}, #{price})
+	</insert>
+
+	<update id="update">
+		UPDATE Order SET
+		basketId = #{basketId},
+		price = #{price}
+		WHERE
+		id = #{id}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM Order WHERE id = #{id}
+	</delete>
+</mapper>

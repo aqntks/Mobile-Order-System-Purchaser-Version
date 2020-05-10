@@ -17,9 +17,7 @@ img { max-width:100%; height:auto }
 <body>
 	<div class="container">
 <!--메인 페이지-->
-	 <a id="start_btn" href='order_page'><img src="res/images/mainLogo.jpg"></a>
-					
-					
+	 <a id="start_btn" href='order_page'><img src="res/images/mainLogo.jpg"></a>		
 	</div>
 </body>
 </html>
