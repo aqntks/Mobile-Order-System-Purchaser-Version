@@ -1,6 +1,6 @@
 package skhu.dto;
 
-public class Order {
+public class OrderList {
 	int id;
 	int basketId;
 	int price;

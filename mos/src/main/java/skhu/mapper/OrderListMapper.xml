@@ -2,30 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="skhu.mapper.OrderMapper">
+<mapper namespace="skhu.mapper.OrderListMapper">
 
-	<select id="findOne" resultType="Order">
-		SELECT * FROM Order WHERE id =
+	<select id="findOne" resultType="OrderList">
+		SELECT * FROM OrderList WHERE id =
 		#{id}
 	</select>
 
-	<select id="findByBasketId" resultType="Order">
-		SELECT * FROM Order WHERE
+	<select id="findByBasketId" resultType="OrderList">
+		SELECT * FROM OrderList WHERE
 		basketId = #{basketId}
 	</select>
 
-	<select id="findAll" resultType="Order">
-		SELECT * FROM Order
+	<select id="findAll" resultType="OrderList">
+		SELECT * FROM OrderList
 	</select>
 
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
 		INSERT
-		Basket (basketId, price)
+		OrderList (basketId, price)
 		VALUES (#{basketId}, #{price})
 	</insert>
 
 	<update id="update">
-		UPDATE Order SET
+		UPDATE OrderList SET
 		basketId = #{basketId},
 		price = #{price}
 		WHERE
@@ -33,6 +33,6 @@
 	</update>
 
 	<delete id="delete">
-		DELETE FROM Order WHERE id = #{id}
+		DELETE FROM OrderList WHERE id = #{id}
 	</delete>
 </mapper>

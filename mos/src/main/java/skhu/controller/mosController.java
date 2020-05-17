@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import skhu.dto.Basket;
 import skhu.dto.Menu1;
-import skhu.dto.Order;
+import skhu.dto.OrderList;
 import skhu.mapper.BasketMapper;
 import skhu.mapper.Menu1Mapper;
-import skhu.mapper.OrderMapper;
+import skhu.mapper.OrderListMapper;
 
 @Controller
 @RequestMapping("/")
@@ -22,7 +22,7 @@ public class mosController {
 
 	@Autowired Menu1Mapper menu1Mapper;
 	@Autowired BasketMapper basketMapper;
-	@Autowired OrderMapper orderMapper;
+	@Autowired OrderListMapper orderListMapper;
 
 	@RequestMapping("order_checkpage")
 	public String order_checkpage(Model model) {
@@ -141,15 +141,14 @@ public class mosController {
 	}
 
 	//판매 화면
-	@RequestMapping(value="sale_page", method=RequestMethod.GET)
-	public String sale_page(Model model) {
-		List<Order> orders = orderMapper.findAll();
+	@RequestMapping(value="sales_page", method=RequestMethod.GET)
+	public String sales_page(Model model) {
+		List<OrderList> ordersList = orderListMapper.findAll();
 		List<Menu1> menus = menu1Mapper.findAll();
-		model.addAttribute("orders", orders);
+		model.addAttribute("ordersList", ordersList);
 		model.addAttribute("menus", menus);
-		return "sale_page";
+		return "sales_page";
 	}
-	
 
 	//메뉴 관리화면
 	@RequestMapping(value="menu_management_page", method=RequestMethod.GET)

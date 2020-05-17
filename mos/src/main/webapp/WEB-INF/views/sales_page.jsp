@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="container">
-		<section id="menu_management_page" data-role="page">
+		<section id="sales_page" data-role="page">
 			<header data-role="header" data-position="fixed">
 				<h1>판매</h1>
 				<a href="seller_main" data-role="button" data-icon="arrow-l"
@@ -20,16 +20,26 @@
 			</header>
 			<div class='content'>
 <!-- 등록된 메뉴 출력 -->
-				<ul data-role="listview" data-inset="true">
-					<c:forEach var="orders" items="${ orders }">
-						<li><h3>${ orders.menuId }</h3>
-								<p>${ menus.price }원</p></li>
+			 	<ul data-role="listview" data-inset="true">
+			 	<li><p>주문번호&nbsp ㅣ
+			 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 메뉴 
+			 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			 	 ㅣ&nbsp가격</p></li>
+					<c:forEach var="ordersList" items="${ ordersList }">
+						<li><a>${ ordersList.id }
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+								${ ordersList.basketId }
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+								${ ordersList.price }원	
+								<span class="ui-li-count">조리 완료</span></a></li>
 					</c:forEach>
-				</ul>
+				</ul> 
 			</div>
 			<footer data-role='footer' data-position="fixed">
 			<h4>
-					<a data-role="button" href="create">메뉴추가</a>
+					<a data-role="button" href="#">판매종료</a>
 				</h4>
 			</footer>
 		</section>
