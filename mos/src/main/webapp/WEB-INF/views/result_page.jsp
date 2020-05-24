@@ -20,7 +20,7 @@
 			<div class='content'>
 <!--주문 내역-->
 
-					<h4><a data-role="button">주문번호 : 11</a></h4>
+					<h4><a data-role="button">주문번호 : ${orderNumber}</a></h4>
 				
 				<ul data-role="listview" id="basketLists" data-inset="true">
 					<c:forEach var="basket" items="${ baskets }">

@@ -145,8 +145,19 @@ public class mosController {
 		
 		orderListMapper.insert(orderList);
 		
+		//주문번호 임시방편
+		OrderList orderTemp = orderListMapper.findByMenuList(temp);
+		int orderNumber = orderTemp.getId();
+		
 		model.addAttribute("count", result);
 		model.addAttribute("temp", temp);
+		model.addAttribute("orderNumber", orderNumber);
+		
+		
+		//장바구니 내용 삭제
+		for(Basket b : baskets) {
+			basketMapper.delete(b.getId());
+		}
 		return "result_page";
 	}
 
