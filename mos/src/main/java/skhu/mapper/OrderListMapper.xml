@@ -9,9 +9,9 @@
 		#{id}
 	</select>
 
-	<select id="findByBasketId" resultType="OrderList">
+	<select id="findByMenuList" resultType="OrderList">
 		SELECT * FROM OrderList WHERE
-		basketId = #{basketId}
+		menuList = #{menuList}
 	</select>
 
 	<select id="findAll" resultType="OrderList">
@@ -20,13 +20,13 @@
 
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
 		INSERT
-		OrderList (basketId, price)
-		VALUES (#{basketId}, #{price})
+		OrderList (menuList, price)
+		VALUES (#{menuList}, #{price})
 	</insert>
 
 	<update id="update">
 		UPDATE OrderList SET
-		basketId = #{basketId},
+		menuList = #{menuList},
 		price = #{price}
 		WHERE
 		id = #{id}

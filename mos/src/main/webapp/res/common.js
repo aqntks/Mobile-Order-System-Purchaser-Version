@@ -8,5 +8,9 @@ $(function() {
   $("[data-confirm-delete]").click(function() {
     return confirm("삭제하시겠습니까?");
   })
+  
+   $("[data-confirm-finish]").click(function() {
+    return confirm("주문 완료하시겠습니까?");
+  })
 
 })

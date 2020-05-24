@@ -122,13 +122,31 @@ public class mosController {
 	//결과화면
 	@RequestMapping(value="result_page", method=RequestMethod.GET)
 	public String result_page(Model model) {
+		//장바구니 -> 주문DB
 		List<Basket> baskets = basketMapper.findAll();
+		OrderList orderList = new OrderList();
+		
+		String temp = "";
+		
+		for(Basket one : baskets) {
+			temp += one.getMenuName() + " ";
+			temp += one.getCount() + " ";
+			temp += "<br>";
+		}
+
 		model.addAttribute("baskets", baskets);
 		int result = 0;
 		for(Basket bs : baskets) {
 			result += bs.getMenuPrice() * bs.getCount();
 		}
+		
+		orderList.setPrice(result);
+		orderList.setMenuList(temp);
+		
+		orderListMapper.insert(orderList);
+		
 		model.addAttribute("count", result);
+		model.addAttribute("temp", temp);
 		return "result_page";
 	}
 
@@ -191,5 +209,11 @@ public class mosController {
 	public String delete(Model model, @RequestParam("id") int id) {
 		menu1Mapper.delete(id);
 		return "redirect:menu_management_page";
+	}
+	
+	@RequestMapping("finish")
+	public String finish(Model model, @RequestParam("id") int id) {
+		orderListMapper.delete(id);
+		return "redirect:sales_page";
 	}
 }

@@ -9,7 +9,7 @@ import skhu.dto.OrderList;
 @Mapper
 public interface OrderListMapper {
 	OrderList findOne(int id);
-	OrderList findByBasketId(int basketId);
+	OrderList findByMenuList(String menuList);
 	List<OrderList> findAll();
 	void insert(OrderList orderList);
 	void update(OrderList orderList);

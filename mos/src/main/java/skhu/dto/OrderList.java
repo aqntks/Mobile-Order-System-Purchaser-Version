@@ -2,7 +2,7 @@ package skhu.dto;
 
 public class OrderList {
 	int id;
-	int basketId;
+	String menuList;
 	int price;
 	
 	public int getId() {
@@ -11,11 +11,11 @@ public class OrderList {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getBasketId() {
-		return basketId;
+	public String getMenuList() {
+		return menuList;
 	}
-	public void setBasketId(int basketId) {
-		this.basketId = basketId;
+	public void setMenuList(String menuList) {
+		this.menuList = menuList;
 	}
 	public int getPrice() {
 		return price;
