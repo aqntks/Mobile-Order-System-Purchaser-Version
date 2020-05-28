@@ -20,11 +20,22 @@
       width: 20%; padding: 5px 24px; color: #eeee  }
     .chg_btn
     { position: absolute; top: 83%; left: 71%; background-color:#6666ff; border-color: #6666ff;
-      width: 20%; padding: 5px 24px; color: #eeee  }
- 
-   
+      width: 20%; padding: 5px 24px; color: #eeee  }   
   
  </style>
+ <script language="javascript">   
+ <!--버튼 클릭시 메시지 창-->
+   function showAlert_add() {
+	   prompt("추가할 메뉴를 입력하세요.");
+   }
+   
+   function showAlert_del() {
+	   prompt("삭제할 메뉴를 입력하세요.");
+   }
+   
+   function showAlert_chg() {
+	   prompt("수정할 메뉴를 입력하세요.");
+   }</script>
 </head>
 <body>
  <h1>메뉴 관리</h1>
@@ -34,9 +45,9 @@
  </div>
 
 <div class="btn">
-	<button type="button" class="add_btn">추가</button> 
-	<button type="button" class="del_btn">삭제</button>
-	<button type="button" class="chg_btn">수정</button> 
+	<button type="button" class="add_btn" onClick="showAlert_add();">추가</button> 
+	<button type="button" class="del_btn" onClick="showAlert_del();">삭제</button>
+	<button type="button" class="chg_btn" onClick="showAlert_chg();">수정</button> 
 </div>
 
 
