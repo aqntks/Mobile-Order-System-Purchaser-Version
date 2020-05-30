@@ -15,7 +15,7 @@
 			<header data-role="header" data-position="fixed">
 				<h1>메뉴 관리</h1>
 				<a href="seller_main" data-role="button" data-icon="arrow-l"
-					data-iconpos="notext"></a> <a href="seller_main" data-role="button"
+					data-iconpos="notext"></a> <a href="seller_main_design" data-role="button"
 					data-icon="home" data-iconpos="notext"></a>
 			</header>
 			<div class='content'>
