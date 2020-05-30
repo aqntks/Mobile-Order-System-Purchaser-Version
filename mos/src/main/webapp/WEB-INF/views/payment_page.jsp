@@ -34,7 +34,7 @@
 			</div>
 			<footer data-role='footer' data-position="fixed">
 				<h4>
-					<a data-role="button" href='result_page'>결제하기</a>
+					<a data-role="button" href='middle_page'>결제하기</a>
 				</h4>
 			</footer>
 		</section>
@@ -47,3 +47,4 @@
 		</div>
 	</div>
 </body>
+</html>

@@ -9,6 +9,9 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+setTimeout('location.reload()',2000);
+</script>
 </head>
 <body>
 	<div class="container">
@@ -33,9 +36,13 @@
 					<a data-role="button">합계 : ${count}원</a>
 				</h4>
 			</div>
+           
+			
+			</br></br></br></br>
+			<a data-role="button" id="start_btn" data-theme="b">${state}</a>  
 			<footer data-role='footer' data-position="fixed">
 				<h4>
-					<a data-role="button" href='purchaser_main'>홈으로</a>
+					<a data-role="button" href='main'>홈으로</a>
 				</h4>
 			</footer>
 		</section>

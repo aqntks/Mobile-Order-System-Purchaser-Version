@@ -9,7 +9,9 @@
 	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
+<script>
+setTimeout('location.reload()',2000);
+</script>
 </head>
 <body>
 	<div class="container">
@@ -23,25 +25,20 @@
 			<div class='content'>
 <!-- 등록된 메뉴 출력 -->
 			 	<ul data-role="listview" data-inset="true">
-			 	<li><p>주문번호&nbsp ㅣ
-			 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 메뉴 
-			 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			 	 ㅣ&nbsp가격</p></li>
+			 	<li><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			 	항목을 클릭하시면 조리 완료 상태로 변경됩니다.</p></li>
 					<c:forEach var="ordersList" items="${ ordersList }">
-						<li><a href="finish?id=${ ordersList.id }">${ ordersList.id }
-						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-								${ ordersList.menuList }
-						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-								${ ordersList.price }원	
+						<li><a href="finish?id=${ ordersList.id }">
+							<h3>주문번호 : ${ ordersList.id }</h3>
+							<p><strong>${ ordersList.menuList }</strong></p>
+							<p>${ ordersList.price }원</p>
 								<span class="ui-li-count">조리 완료</span></a></li>
 					</c:forEach>
 				</ul> 
 			</div>
 			<footer data-role='footer' data-position="fixed">
 			<h4>
-					<a data-role="button" href="#">판매종료</a>
+					<a data-role="button" href="seller_main">판매종료</a>
 				</h4>
 			</footer>
 		</section>

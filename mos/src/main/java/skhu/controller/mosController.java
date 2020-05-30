@@ -1,5 +1,6 @@
 package skhu.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import skhu.dto.Basket;
 import skhu.dto.Menu1;
+import skhu.dto.Middle;
 import skhu.dto.OrderList;
 import skhu.mapper.BasketMapper;
 import skhu.mapper.Menu1Mapper;
@@ -27,6 +29,15 @@ public class mosController {
 	@RequestMapping("order_checkpage")
 	public String order_checkpage(Model model) {
 		return "order_checkpage";
+	}
+
+	@RequestMapping(value="test", method=RequestMethod.GET)
+	public String test(Model model) {
+		return "test";
+	}
+	@RequestMapping(value="test", method=RequestMethod.POST)
+	public String test2(Model model) {
+		return "test";
 	}
 
 	//구매자----------------------------------------------------------------------------------
@@ -119,19 +130,25 @@ public class mosController {
 		return "redirect:basket_page";
 	}
 
-	//결과화면
-	@RequestMapping(value="result_page", method=RequestMethod.GET)
-	public String result_page(Model model) {
+	//결과화면 전 처리과정
+	@RequestMapping(value="middle_page", method=RequestMethod.GET)
+	public String middle_page(Model model) {
 		//장바구니 -> 주문DB
 		List<Basket> baskets = basketMapper.findAll();
 		OrderList orderList = new OrderList();
-		
+
 		String temp = "";
-		
+		String temp2 = "";
+
 		for(Basket one : baskets) {
 			temp += one.getMenuName() + " ";
 			temp += one.getCount() + " ";
 			temp += "<br>";
+		}
+		
+		for(Basket two : baskets) {
+			temp2 += two.getMenuName() + " ";
+			temp2 += two.getCount() + " ";
 		}
 
 		model.addAttribute("baskets", baskets);
@@ -139,25 +156,54 @@ public class mosController {
 		for(Basket bs : baskets) {
 			result += bs.getMenuPrice() * bs.getCount();
 		}
-		
+
 		orderList.setPrice(result);
 		orderList.setMenuList(temp);
-		
+
 		orderListMapper.insert(orderList);
-		
+
 		//주문번호 임시방편
 		OrderList orderTemp = orderListMapper.findByMenuList(temp);
 		int orderNumber = orderTemp.getId();
-		
+
 		model.addAttribute("count", result);
-		model.addAttribute("temp", temp);
+		model.addAttribute("temp", temp2);
 		model.addAttribute("orderNumber", orderNumber);
-		
-		
+
+
 		//장바구니 내용 삭제
 		for(Basket b : baskets) {
 			basketMapper.delete(b.getId());
 		}
+		return "middle_page";
+	}
+
+	//결과화면
+	@RequestMapping(value="result_page", method=RequestMethod.GET)
+	public String result_page(Model model, Middle middle) {
+		List<OrderList> ordersList = orderListMapper.findAll();
+		String state = "조리가 완료되었습니다. 메뉴를 찾아가 주세요.";
+		String[] menuList = middle.getMenuList().split(" ");
+		List<Basket> lb = new ArrayList<Basket>();
+		
+		for(int i = 0; i < menuList.length; i+=2) {
+			Basket bk = new Basket();
+			bk.setMenuName(menuList[i]);
+			bk.setCount(Integer.parseInt(menuList[i+1]));
+			lb.add(bk);
+		}
+
+		model.addAttribute("orderNumber", middle.getOrderNumber());
+		model.addAttribute("count", middle.getCount());
+		model.addAttribute("baskets", lb);
+
+		for(OrderList temp : ordersList) {
+			if(middle.getOrderNumber() == temp.getId()) {
+				state = "조리 중입니다.";
+			}
+		}
+		model.addAttribute("state", state);  //true 조리중 false 조리 완료
+
 		return "result_page";
 	}
 
@@ -221,7 +267,7 @@ public class mosController {
 		menu1Mapper.delete(id);
 		return "redirect:menu_management_page";
 	}
-	
+
 	@RequestMapping("finish")
 	public String finish(Model model, @RequestParam("id") int id) {
 		orderListMapper.delete(id);
