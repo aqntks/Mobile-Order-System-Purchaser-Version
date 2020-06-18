@@ -14,9 +14,11 @@ import skhu.dto.Basket;
 import skhu.dto.Menu1;
 import skhu.dto.Middle;
 import skhu.dto.OrderList;
+import skhu.dto.SalesStatus;
 import skhu.mapper.BasketMapper;
 import skhu.mapper.Menu1Mapper;
 import skhu.mapper.OrderListMapper;
+import skhu.mapper.SalesStatusMapper;
 
 @Controller
 @RequestMapping("/")
@@ -25,6 +27,7 @@ public class mosController {
 	@Autowired Menu1Mapper menu1Mapper;
 	@Autowired BasketMapper basketMapper;
 	@Autowired OrderListMapper orderListMapper;
+	@Autowired SalesStatusMapper salesStatusMapper;
 
 	@RequestMapping("order_checkpage")
 	public String order_checkpage(Model model) {
@@ -52,10 +55,20 @@ public class mosController {
 	public String purchaser_main(Model model) {
 		return "purchaser_main";
 	}
+	
+	//판매 시작 전 페이지
+	@RequestMapping("unstart_page")
+	public String unstart_page(Model model) {
+		return "unstart_page";
+	}
 
 	//주문 화면
 	@RequestMapping("order_page")
 	public String order_page(Model model) {
+		if(salesStatusMapper.findOne(1).getOnoff2() == 0)
+			return "unstart_page";
+		
+		else {
 		Basket basket = new Basket();
 		model.addAttribute("basket", basket);
 		List<Menu1> menus = menu1Mapper.findAll();
@@ -69,6 +82,7 @@ public class mosController {
 		}
 		model.addAttribute("count", result);
 		return "order_page";
+		}
 	}
 
 	//장바구니 화면
@@ -227,7 +241,21 @@ public class mosController {
 		List<Menu1> menus = menu1Mapper.findAll();
 		model.addAttribute("ordersList", ordersList);
 		model.addAttribute("menus", menus);
+		SalesStatus st = new SalesStatus();
+		st.setId(1);
+		st.setOnoff2(1);
+		salesStatusMapper.update(st);
 		return "sales_page";
+	}
+	
+	//판매 종료 기능
+	@RequestMapping("finishs")
+	public String finishs(Model model) {
+		SalesStatus st = new SalesStatus();
+		st.setId(1);
+		st.setOnoff2(0);
+		salesStatusMapper.update(st);
+		return "seller_main_design";
 	}
 
 	//메뉴 관리화면

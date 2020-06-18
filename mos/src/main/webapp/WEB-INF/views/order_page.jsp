@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <link rel="stylesheet"
 	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -29,7 +28,7 @@
 			<div data-role="content">
 <!--주문내역 패널(미완성)-->
 				<div data-role="panel" id="basketPanel" data-display="overlay"
-					data-theme="b" data-position="right">
+					data-theme="a" data-position="right">
 					<div class='content'>
 						<ul data-role="listview" id="basketLists" data-inset="true">
 							<li data-role="list-divider">음료</li>
