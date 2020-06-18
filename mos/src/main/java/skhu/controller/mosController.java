@@ -214,6 +214,11 @@ public class mosController {
 	public String seller_main(Model model) {
 		return "seller_main";
 	}
+	
+	@RequestMapping("seller_main_design")
+	public String seller_main_design(Model model) {
+		return "seller_main_design";
+	}
 
 	//판매 화면
 	@RequestMapping(value="sales_page", method=RequestMethod.GET)

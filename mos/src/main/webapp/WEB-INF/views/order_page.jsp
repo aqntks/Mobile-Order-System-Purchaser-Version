@@ -1,21 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <link rel="stylesheet"
 	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" href="greenTheme.min.css" />
+	<link rel="stylesheet" href="jquery.mobile.icon.min.css" />
 </head>
 <body>
 	<div class="container">
 <!--주문 페이지-->
 		<section id="order_page" data-role="page">
-			<header data-role="header" data-position="fixed">
+			<header data-role="header" data-position="fixed" data-theme="a">
 				<h1>메뉴 주문</h1>
 <!--처음으로-->
 				<a href="#homeActS1" data-role="button" data-icon="home"
