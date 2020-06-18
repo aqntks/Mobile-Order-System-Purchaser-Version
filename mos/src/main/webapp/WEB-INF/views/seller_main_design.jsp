@@ -7,6 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet"
 	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" href="greenTheme.min.css" />	
+<link rel="stylesheet" href="jquery.mobile.icon.min.css" />
 <style type="text/css">
 body {
 	background-color: #6666ff;
