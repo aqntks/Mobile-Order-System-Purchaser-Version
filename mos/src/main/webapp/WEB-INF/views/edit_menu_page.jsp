@@ -11,6 +11,8 @@
 <script
 	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script src="${R}res/common.js"></script>
+<link rel="stylesheet" href="greenTheme.min.css" />
+<link rel="stylesheet" href="jquery.mobile.icon.min.css" />
 </head>
 <body>
 	<div class="container">
