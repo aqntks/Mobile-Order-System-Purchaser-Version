@@ -7,7 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="greenTheme.min.css" />
 <link rel="stylesheet" href="jquery.mobile.icon.min.css" />
-
 <style type="text/css">
 body {
 	background-color: #4db8ff;
