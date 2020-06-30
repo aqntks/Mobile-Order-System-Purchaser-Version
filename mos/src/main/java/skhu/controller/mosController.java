@@ -29,20 +29,6 @@ public class mosController {
 	@Autowired OrderListMapper orderListMapper;
 	@Autowired SalesStatusMapper salesStatusMapper;
 
-	@RequestMapping("order_checkpage")
-	public String order_checkpage(Model model) {
-		return "order_checkpage";
-	}
-
-	@RequestMapping(value="test", method=RequestMethod.GET)
-	public String test(Model model) {
-		return "test";
-	}
-	@RequestMapping(value="test", method=RequestMethod.POST)
-	public String test2(Model model) {
-		return "test";
-	}
-
 	//구매자----------------------------------------------------------------------------------
 
 	//구매자 메인 화면
@@ -195,6 +181,10 @@ public class mosController {
 	//결과화면
 	@RequestMapping(value="result_page", method=RequestMethod.GET)
 	public String result_page(Model model, Middle middle) {
+		//판매 종료되면 판매 종료 페이지로 넘어감
+		if(salesStatusMapper.findOne(1).getOnoff2() == 0)
+			return "unstart_page";
+		
 		List<OrderList> ordersList = orderListMapper.findAll();
 		String state = "조리가 완료되었습니다. 메뉴를 찾아가 주세요.";
 		String[] menuList = middle.getMenuList().split(" ");
