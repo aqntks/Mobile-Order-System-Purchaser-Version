@@ -34,8 +34,10 @@ h1 {
 .container {
 	padding: 2em;
 }
-<!--
-판매시작 버튼 -->button, button::after {
+ button:hover {color:  #52ad58;} <!-- 마우스 접근 버튼 글씨 색 -->
+ 
+<!--판매시작 버튼 -->
+button, button::after {
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	-o-transition: all 0.3s;
@@ -44,17 +46,18 @@ h1 {
 .btn_start {
 	background: none;
 	border: 3px solid #fff;
-	border-radius: 5px;
+	border-radius: 10px;
 	color: #fff;
 	display: block;
 	font-size: 1.6em;
 	font-weight: bold;
 	margin: 1em auto;
-	padding: 2em 6em;
+	padding: 2.5em 5em;
 	position: fixed;
-	top: 40%;
-	left: 23.4%;
-	text-transform: uppercase;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%); 
+	text-transform: uppercase;	
 	z-index: 2;
 }
 button::before, button::after {
@@ -63,9 +66,6 @@ button::before, button::after {
 	position: absolute;
 	z-index: -1;
 }
-button:hover {
-	color: #b3b3ff;
-}
 .btn_start::before {
 	height: 100%;
 	left: 0;
@@ -73,7 +73,7 @@ button:hover {
 	width: 100%;
 }
 .btn_start::after {
-	background: #9999ff;
+	background: #52ad58;
 	height: 100%;
 	left: 0;
 	top: 0;
@@ -85,8 +85,9 @@ button:hover {
 	top: 50%;
 	width: 0;
 }
-<!--
-메뉴관리 버튼 -->button, button::after {
+
+<!--메뉴관리 버튼 -->
+button, button::after {
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	-o-transition: all 0.3s;
@@ -95,16 +96,17 @@ button:hover {
 .btn_menu {
 	background: none;
 	border: 3px solid #fff;
-	border-radius: 5px;
+	border-radius: 10px;
 	color: #fff;
 	display: block;
 	font-size: 1.6em;
 	font-weight: bold;
 	margin: 1em auto;
-	padding: 2em 6em;
+	padding: 2.5em 5em;
 	position: fixed;
 	top: 60%;
-	left: 23.4%;
+	left: 50%;
+	transform: translate(-50%, -50%); 
 	text-transform: uppercase;
 	z-index: 2;
 }
@@ -114,9 +116,6 @@ button::before, button::after {
 	position: absolute;
 	z-index: -1;
 }
-button:hover {
-	color: #b3b3ff;
-}
 .btn_menu::before {
 	height: 100%;
 	left: 0;
@@ -124,7 +123,7 @@ button:hover {
 	width: 100%;
 }
 .btn_menu::after {
-	background: #9999ff;
+	background: #52ad58;
 	height: 100%;
 	left: 0;
 	top: 0;
