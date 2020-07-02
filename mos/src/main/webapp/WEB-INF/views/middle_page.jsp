@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="greenTheme.min.css" />
+<link rel="stylesheet" href="jquery.mobile.icon.min.css" />
 </head>
 <body>
 
