@@ -9,12 +9,12 @@
 <link rel="stylesheet" href="jquery.mobile.icon.min.css" />
 <style type="text/css">
 body {
-	background-color: #4db8ff;
+	background-color: #74be79;
 	font-size: 62.5%
 }
 #logo {
 	border-radius: 10px;
-	top: 50%;
+	top: 45%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	position: fixed;
@@ -31,6 +31,9 @@ h1 {
 .container {
 	padding: 2em;
 }
+button:hover {color:  #52ad58;} <!-- 마우스 접근 버튼 글씨 색 -->
+
+<!-- 주문하러가기 버튼 -->
 button, button::after {
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
@@ -40,16 +43,17 @@ button, button::after {
 button {
 	background: none;
 	border: 3px solid #fff;
-	border-radius: 5px;
+	border-radius: 10px;
 	color: #fff;
 	display: block;
 	font-size: 1.6em;
 	font-weight: bold;
 	margin: 1em auto;
-	padding: 2em 6em;
+	padding: 2em 4em;
 	position: fixed;
-	top: 47%;
-	left: 20.4%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	text-transform: uppercase;
 	z-index: 2;
 }
@@ -59,23 +63,20 @@ button::before, button::after {
 	position: absolute;
 	z-index: -1;
 }
-button:hover {
-	color: #2e8acc;
-}
-.btn-4::before {
+.btn_order::before {
 	height: 100%;
 	left: 0;
 	top: 0;
 	width: 100%;
 }
-.btn-4::after {
-	background: #4da6ff;
+.btn_order::after {
+	background: #52ad58;
 	height: 100%;
 	left: 0;
 	top: 0;
 	width: 100%;
 }
-.btn-4:hover:after {
+.btn_order:hover:after {
 	height: 0;
 	left: 50%;
 	top: 50%;
@@ -89,7 +90,7 @@ button:hover {
 			<h1>
 				<p id="logo">MOS</p>
 			</h1>
-			<button type="button" class="btn-4" onclick="location.href='order_page' ">주문하러 가기</button>
+			<button type="button" class="btn_order" onclick="location.href='order_page' ">주문하러 가기</button>
 		</div>
 	</form>
 </body>
