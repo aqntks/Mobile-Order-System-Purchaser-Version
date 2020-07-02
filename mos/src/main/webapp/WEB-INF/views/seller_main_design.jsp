@@ -12,16 +12,16 @@
 <style type="text/css">
 
 body {
-	background-color: #6666ff;
+	background-color: #74be79;
 	font-size: 62.5%
 }
 #logo {
 	border-radius: 10px;
-	top: 50%;
+	top: 45%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	position: fixed;
-	padding: 10px;
+	padding: 15px;
 	background-color: #ffffff;
 	width: 300px;
 	height: 400px
@@ -54,7 +54,7 @@ button, button::after {
 	margin: 1em auto;
 	padding: 2.5em 5em;
 	position: fixed;
-	top: 45%;
+	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%); 
 	text-transform: uppercase;	
