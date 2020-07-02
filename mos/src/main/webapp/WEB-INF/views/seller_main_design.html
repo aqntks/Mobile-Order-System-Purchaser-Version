@@ -3,52 +3,45 @@
 <head>
 <meta charset="UTF-8"/>
  <style type="text/css">
-   body { background-color: #6666ff; font-size: 62.5%}
+   body { background-color:   #74be79; font-size: 62.5%; }
    #logo { border-radius: 10px; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-          position: fixed;  padding: 10px; background-color: #ffffff; 
+          position: fixed;  padding: 15px; background-color: #ffffff; 
           width: 300px; height: 400px}
    h1 {color: #696969; text-align: center ;font-size: xx-large}
    .container { padding: 2em;}
 
+ button:hover {color:  #52ad58;} <!-- 마우스 접근 버튼 글씨 색 -->
 <!-- 판매시작 버튼 -->
 button,
 button::after {
   -webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
+  -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
-	transition: all 0.3s;
+   transition: all 0.3s;
 }
-
 .btn_start {  
   background: none;
   border: 3px solid #fff;
-  border-radius: 5px;
+  border-radius: 10px;
   color: #fff;
   display: block;
   font-size: 1.6em;
   font-weight: bold;
   margin: 1em auto;
-  padding: 2em 6em;
+  padding: 2.5em 5em;
   position: fixed;
-  top: 40%;
-  left: 23.4%;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
   text-transform: uppercase;
-   z-index: 2;
-  
+   z-index: 2;  
 }
-
-button::before,
-button::after {
+button::before,button::after {
   background: #fff;
   content: '';
   position: absolute;
   z-index: -1;
 }
-
-button:hover {
-  color: #b3b3ff;
-}
-
 
 .btn_start::before {
   height: 100%;
@@ -56,15 +49,13 @@ button:hover {
   top: 0;
   width: 100%;
 }
-
 .btn_start::after {
-  background: #9999ff;
+  background:  #52ad58;
   height: 100%;
   left: 0;
   top: 0;
   width: 100%;
 }
-
 .btn_start:hover:after {
   height: 0;
   left: 50%;
@@ -75,28 +66,27 @@ button:hover {
 <!-- 메뉴관리 버튼 -->
 button,
 button::after {
-  -webkit-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
+    -o-transition: all 0.3s;
 	transition: all 0.3s;
 }
-
 .btn_menu {  
   background: none;
   border: 3px solid #fff;
-  border-radius: 5px;
+  border-radius: 10px;
   color: #fff;
   display: block;
   font-size: 1.6em;
   font-weight: bold;
   margin: 1em auto;
-  padding: 2em 6em;
+  padding: 2.5em 5em;
   position: fixed;
-  top: 60%;
-  left: 23.4%;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
   text-transform: uppercase;
-   z-index: 2;
-  
+   z-index: 2;  
 }
 
 button::before,
@@ -107,26 +97,19 @@ button::after {
   z-index: -1;
 }
 
-button:hover {
-  color: #b3b3ff;
-}
-
-
 .btn_menu::before {
   height: 100%;
   left: 0;
   top: 0;
   width: 100%;
 }
-
 .btn_menu::after {
-  background: #9999ff;
+  background:  #52ad58;
   height: 100%;
   left: 0;
   top: 0;
   width: 100%;
 }
-
 .btn_menu:hover:after {
   height: 0;
   left: 50%;
