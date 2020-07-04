@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+ <style type="text/css">
+   h1 { position: relative; overflow: hidden; padding: 15px; text-align: left;
+        border-style: solid; border-color:#8080ff; background: #8080ff; color:#eeee}
+        
+   .listbox  { position: absolute; top:20%; left:7%; text-align: center;  min-width:180px; width: 85%; height: 400px; 
+              border:solid #c2c2d6; overflow: auto; letter-spacing: 5px }
+        
+   div.btn { margin: auto; width: 100%; padding: 5px; font-size: 18px }
+   button { padding: 5px; width: 100%; font-size: 18px;}
+            
+   .add_btn
+    { position: absolute; top: 83%; left: 10%; background-color:#6666ff; border-color: #6666ff;
+      width: 20%; padding: 5px 24px; color: #eeee}
+   .del_btn
+    { position: absolute; top: 83%; left: 40%; background-color:#6666ff; border-color: #6666ff;
+      width: 20%; padding: 5px 24px; color: #eeee  }
+    .chg_btn
+    { position: absolute; top: 83%; left: 71%; background-color:#6666ff; border-color: #6666ff;
+      width: 20%; padding: 5px 24px; color: #eeee  }   
+  
+ </style>
+ <script language="javascript">   
+ <!--버튼 클릭시 메시지 창-->
+   function showAlert_add() {
+	   prompt("추가할 메뉴를 입력하세요.");
+   }
+   
+   function showAlert_del() {
+	   prompt("삭제할 메뉴를 입력하세요.");
+   }
+   
+   function showAlert_chg() {
+	   prompt("수정할 메뉴를 입력하세요.");
+   }</script>
+</head>
+<body>
+ <h1>메뉴 관리</h1>
+ 
+ <div class="listbox">
+ 	<p class=""><!-- 메뉴리스트 나열 --></p>
+ </div>
+
+<div class="btn">
+	<button type="button" class="add_btn" onClick="showAlert_add();">추가</button> 
+	<button type="button" class="del_btn" onClick="showAlert_del();">삭제</button>
+	<button type="button" class="chg_btn" onClick="showAlert_chg();">수정</button> 
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.mapper.OrderListMapper">
+
+	<select id="findOne" resultType="OrderList">
+		SELECT * FROM OrderList WHERE id =
+		#{id}
+	</select>
+
+	<select id="findByMenuList" resultType="OrderList">
+		SELECT * FROM OrderList WHERE
+		menuList = #{menuList}
+	</select>
+
+	<select id="findAll" resultType="OrderList">
+		SELECT * FROM OrderList
+	</select>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT
+		OrderList (menuList, price)
+		VALUES (#{menuList}, #{price})
+	</insert>
+
+	<update id="update">
+		UPDATE OrderList SET
+		menuList = #{menuList},
+		price = #{price}
+		WHERE
+		id = #{id}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM OrderList WHERE id = #{id}
+	</delete>
+</mapper>
